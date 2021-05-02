@@ -21,7 +21,7 @@ public class Stm32DSLParser extends Parser {
 		BLINK_KW=9, DELAY_KW=10, IS_LOUD_KW=11, PRINT_KW=12, WHILE_KW=13, DEL=14, 
 		FOR_KW=15, IF_KW=16, ELSE_KW=17, RELATIONAL_OP=18, EQUALITY_OP=19, LOGICAL_OR_OP=20, 
 		LOGICAL_AND_OP=21, VAR_KW=22, VAR=23, INCREMENT=24, DECREMENT=25, OP=26, 
-		NUMBER=27, STRING=28, CHAR=29, WS=30;
+		NUMBER=27, CHAR_LITERAL=28, STRING_LITERAL=29, WS=30;
 	public static final int
 		RULE_script = 0, RULE_expression = 1, RULE_ledOnExpression = 2, RULE_ledOffExpression = 3, 
 		RULE_delayExpression = 4, RULE_blinkExpression = 5, RULE_whileExpression = 6, 
@@ -59,7 +59,7 @@ public class Stm32DSLParser extends Parser {
 			"BLINK_KW", "DELAY_KW", "IS_LOUD_KW", "PRINT_KW", "WHILE_KW", "DEL", 
 			"FOR_KW", "IF_KW", "ELSE_KW", "RELATIONAL_OP", "EQUALITY_OP", "LOGICAL_OR_OP", 
 			"LOGICAL_AND_OP", "VAR_KW", "VAR", "INCREMENT", "DECREMENT", "OP", "NUMBER", 
-			"STRING", "CHAR", "WS"
+			"CHAR_LITERAL", "STRING_LITERAL", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -742,8 +742,8 @@ public class Stm32DSLParser extends Parser {
 
 	public static class PrintExpressionContext extends ParserRuleContext {
 		public TerminalNode PRINT_KW() { return getToken(Stm32DSLParser.PRINT_KW, 0); }
-		public TerminalNode STRING() { return getToken(Stm32DSLParser.STRING, 0); }
-		public TerminalNode CHAR() { return getToken(Stm32DSLParser.CHAR, 0); }
+		public TerminalNode STRING_LITERAL() { return getToken(Stm32DSLParser.STRING_LITERAL, 0); }
+		public TerminalNode CHAR_LITERAL() { return getToken(Stm32DSLParser.CHAR_LITERAL, 0); }
 		public PrintExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -774,7 +774,7 @@ public class Stm32DSLParser extends Parser {
 			match(PRINT_KW);
 			setState(105);
 			_la = _input.LA(1);
-			if ( !(_la==STRING || _la==CHAR) ) {
+			if ( !(_la==CHAR_LITERAL || _la==STRING_LITERAL) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {

@@ -27,7 +27,8 @@ public enum Command {
     IDEC(19),
     IINC(20),
     ISLOUD(21),
-    PRINT(22);
+    PRNTCHR(22),
+    PRNTVAR(23);
 
     private final Integer code;
 

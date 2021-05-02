@@ -7,16 +7,14 @@ public class Main {
 
     public static final String PROGRAM = """
             script {
-                while (1) {
-                    if (isloud) {
-                        print "Too loud!\n"
-            
-                        for (var i = 0; i < 5; i++) {
-                            blink 1000000
-                            delay 1000000
-                        }
-                    }
+                var n = 13
+                var result = 1
+                
+                for (var i = 2; i < (n + 1); i++) {
+                    result = result * i
                 }
+                
+                print "${n}! = ${result}"
             }
             """;
 

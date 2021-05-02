@@ -26,8 +26,8 @@ INCREMENT : '++';
 DECREMENT : '--';
 OP : '+' | '-' | '*' | '%' | '/';
 NUMBER : [0-9]+;
-STRING : '"'~["]+'"';
-CHAR : '\''~[']'\'';
+CHAR_LITERAL : '\''~[']'\'';
+STRING_LITERAL : '"'(~["])+'"';
 WS : [\n\t\r ]+ -> skip;
 
 script
@@ -83,7 +83,7 @@ assignExpression
     ;
 
 printExpression
-    : PRINT_KW (STRING | CHAR)
+    : PRINT_KW (STRING_LITERAL | CHAR_LITERAL)
     ;
 
 ifExpression
