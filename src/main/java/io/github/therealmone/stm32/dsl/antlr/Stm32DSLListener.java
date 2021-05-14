@@ -68,6 +68,16 @@ public interface Stm32DSLListener extends ParseTreeListener {
 	 */
 	void exitBlinkExpression(Stm32DSLParser.BlinkExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link Stm32DSLParser#timeExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterTimeExpression(Stm32DSLParser.TimeExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Stm32DSLParser#timeExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitTimeExpression(Stm32DSLParser.TimeExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Stm32DSLParser#whileExpression}.
 	 * @param ctx the parse tree
 	 */

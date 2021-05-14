@@ -88,6 +88,18 @@ public class Stm32DSLBaseListener implements Stm32DSLListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterTimeExpression(Stm32DSLParser.TimeExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTimeExpression(Stm32DSLParser.TimeExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterWhileExpression(Stm32DSLParser.WhileExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}

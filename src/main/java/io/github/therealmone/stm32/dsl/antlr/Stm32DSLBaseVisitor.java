@@ -59,6 +59,13 @@ public class Stm32DSLBaseVisitor<T> extends AbstractParseTreeVisitor<T> implemen
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitTimeExpression(Stm32DSLParser.TimeExpressionContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitWhileExpression(Stm32DSLParser.WhileExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}

@@ -20,24 +20,25 @@ public class Stm32DSLParser extends Parser {
 		T__0=1, SCRIPT_KW=2, LFB=3, RFB=4, LB=5, RB=6, LED_ON_KW=7, LED_OFF_KW=8, 
 		BLINK_KW=9, DELAY_KW=10, IS_LOUD_KW=11, PRINT_KW=12, WHILE_KW=13, DEL=14, 
 		FOR_KW=15, IF_KW=16, ELSE_KW=17, RELATIONAL_OP=18, EQUALITY_OP=19, LOGICAL_OR_OP=20, 
-		LOGICAL_AND_OP=21, VAR_KW=22, VAR=23, INCREMENT=24, DECREMENT=25, OP=26, 
-		NUMBER=27, CHAR_LITERAL=28, STRING_LITERAL=29, WS=30;
+		LOGICAL_AND_OP=21, TIME_UNIT=22, VAR_KW=23, VAR=24, INCREMENT=25, DECREMENT=26, 
+		OP=27, NUMBER=28, CHAR_LITERAL=29, STRING_LITERAL=30, WS=31;
 	public static final int
 		RULE_script = 0, RULE_expression = 1, RULE_ledOnExpression = 2, RULE_ledOffExpression = 3, 
-		RULE_delayExpression = 4, RULE_blinkExpression = 5, RULE_whileExpression = 6, 
-		RULE_forExpression = 7, RULE_varExpression = 8, RULE_assignExpression = 9, 
-		RULE_printExpression = 10, RULE_ifExpression = 11, RULE_conditionalExpression = 12, 
-		RULE_logicalOrExpression = 13, RULE_logicalAndExpression = 14, RULE_equalityExpression = 15, 
-		RULE_relationalExpression = 16, RULE_valueExpression = 17, RULE_valueExpressionWithBrackets = 18, 
-		RULE_value = 19, RULE_isLoudExpression = 20, RULE_block = 21, RULE_unaryExpression = 22, 
-		RULE_postfixExpression = 23, RULE_prefixExpression = 24;
+		RULE_delayExpression = 4, RULE_blinkExpression = 5, RULE_timeExpression = 6, 
+		RULE_whileExpression = 7, RULE_forExpression = 8, RULE_varExpression = 9, 
+		RULE_assignExpression = 10, RULE_printExpression = 11, RULE_ifExpression = 12, 
+		RULE_conditionalExpression = 13, RULE_logicalOrExpression = 14, RULE_logicalAndExpression = 15, 
+		RULE_equalityExpression = 16, RULE_relationalExpression = 17, RULE_valueExpression = 18, 
+		RULE_valueExpressionWithBrackets = 19, RULE_value = 20, RULE_isLoudExpression = 21, 
+		RULE_block = 22, RULE_unaryExpression = 23, RULE_postfixExpression = 24, 
+		RULE_prefixExpression = 25;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"script", "expression", "ledOnExpression", "ledOffExpression", "delayExpression", 
-			"blinkExpression", "whileExpression", "forExpression", "varExpression", 
-			"assignExpression", "printExpression", "ifExpression", "conditionalExpression", 
-			"logicalOrExpression", "logicalAndExpression", "equalityExpression", 
-			"relationalExpression", "valueExpression", "valueExpressionWithBrackets", 
+			"blinkExpression", "timeExpression", "whileExpression", "forExpression", 
+			"varExpression", "assignExpression", "printExpression", "ifExpression", 
+			"conditionalExpression", "logicalOrExpression", "logicalAndExpression", 
+			"equalityExpression", "relationalExpression", "valueExpression", "valueExpressionWithBrackets", 
 			"value", "isLoudExpression", "block", "unaryExpression", "postfixExpression", 
 			"prefixExpression"
 		};
@@ -48,7 +49,7 @@ public class Stm32DSLParser extends Parser {
 		return new String[] {
 			null, "'='", "'script'", "'{'", "'}'", "'('", "')'", "'ledon'", "'ledoff'", 
 			"'blink'", "'delay'", "'isloud'", "'print'", "'while'", "';'", "'for'", 
-			"'if'", "'else'", null, null, "'||'", "'&&'", "'var'", null, "'++'", 
+			"'if'", "'else'", null, null, "'||'", "'&&'", null, "'var'", null, "'++'", 
 			"'--'"
 		};
 	}
@@ -58,8 +59,8 @@ public class Stm32DSLParser extends Parser {
 			null, null, "SCRIPT_KW", "LFB", "RFB", "LB", "RB", "LED_ON_KW", "LED_OFF_KW", 
 			"BLINK_KW", "DELAY_KW", "IS_LOUD_KW", "PRINT_KW", "WHILE_KW", "DEL", 
 			"FOR_KW", "IF_KW", "ELSE_KW", "RELATIONAL_OP", "EQUALITY_OP", "LOGICAL_OR_OP", 
-			"LOGICAL_AND_OP", "VAR_KW", "VAR", "INCREMENT", "DECREMENT", "OP", "NUMBER", 
-			"CHAR_LITERAL", "STRING_LITERAL", "WS"
+			"LOGICAL_AND_OP", "TIME_UNIT", "VAR_KW", "VAR", "INCREMENT", "DECREMENT", 
+			"OP", "NUMBER", "CHAR_LITERAL", "STRING_LITERAL", "WS"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -143,9 +144,9 @@ public class Stm32DSLParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(50);
+			setState(52);
 			match(SCRIPT_KW);
-			setState(51);
+			setState(53);
 			block();
 			}
 		}
@@ -217,83 +218,83 @@ public class Stm32DSLParser extends Parser {
 		ExpressionContext _localctx = new ExpressionContext(_ctx, getState());
 		enterRule(_localctx, 2, RULE_expression);
 		try {
-			setState(64);
+			setState(66);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(53);
+				setState(55);
 				blinkExpression();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(54);
+				setState(56);
 				ledOnExpression();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(55);
+				setState(57);
 				ledOffExpression();
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(56);
+				setState(58);
 				delayExpression();
 				}
 				break;
 			case 5:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(57);
+				setState(59);
 				whileExpression();
 				}
 				break;
 			case 6:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(58);
+				setState(60);
 				forExpression();
 				}
 				break;
 			case 7:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(59);
+				setState(61);
 				varExpression();
 				}
 				break;
 			case 8:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(60);
+				setState(62);
 				assignExpression();
 				}
 				break;
 			case 9:
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(61);
+				setState(63);
 				unaryExpression();
 				}
 				break;
 			case 10:
 				enterOuterAlt(_localctx, 10);
 				{
-				setState(62);
+				setState(64);
 				printExpression();
 				}
 				break;
 			case 11:
 				enterOuterAlt(_localctx, 11);
 				{
-				setState(63);
+				setState(65);
 				ifExpression();
 				}
 				break;
@@ -337,7 +338,7 @@ public class Stm32DSLParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(66);
+			setState(68);
 			match(LED_ON_KW);
 			}
 		}
@@ -379,7 +380,7 @@ public class Stm32DSLParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(68);
+			setState(70);
 			match(LED_OFF_KW);
 			}
 		}
@@ -396,8 +397,8 @@ public class Stm32DSLParser extends Parser {
 
 	public static class DelayExpressionContext extends ParserRuleContext {
 		public TerminalNode DELAY_KW() { return getToken(Stm32DSLParser.DELAY_KW, 0); }
-		public ValueExpressionContext valueExpression() {
-			return getRuleContext(ValueExpressionContext.class,0);
+		public TimeExpressionContext timeExpression() {
+			return getRuleContext(TimeExpressionContext.class,0);
 		}
 		public DelayExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -424,10 +425,10 @@ public class Stm32DSLParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(70);
+			setState(72);
 			match(DELAY_KW);
-			setState(71);
-			valueExpression();
+			setState(73);
+			timeExpression();
 			}
 		}
 		catch (RecognitionException re) {
@@ -443,8 +444,8 @@ public class Stm32DSLParser extends Parser {
 
 	public static class BlinkExpressionContext extends ParserRuleContext {
 		public TerminalNode BLINK_KW() { return getToken(Stm32DSLParser.BLINK_KW, 0); }
-		public ValueExpressionContext valueExpression() {
-			return getRuleContext(ValueExpressionContext.class,0);
+		public TimeExpressionContext timeExpression() {
+			return getRuleContext(TimeExpressionContext.class,0);
 		}
 		public BlinkExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -471,10 +472,74 @@ public class Stm32DSLParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(73);
+			setState(75);
 			match(BLINK_KW);
-			setState(74);
-			valueExpression();
+			setState(76);
+			timeExpression();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class TimeExpressionContext extends ParserRuleContext {
+		public TerminalNode TIME_UNIT() { return getToken(Stm32DSLParser.TIME_UNIT, 0); }
+		public TerminalNode NUMBER() { return getToken(Stm32DSLParser.NUMBER, 0); }
+		public ValueExpressionWithBracketsContext valueExpressionWithBrackets() {
+			return getRuleContext(ValueExpressionWithBracketsContext.class,0);
+		}
+		public TimeExpressionContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_timeExpression; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof Stm32DSLListener ) ((Stm32DSLListener)listener).enterTimeExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof Stm32DSLListener ) ((Stm32DSLListener)listener).exitTimeExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof Stm32DSLVisitor ) return ((Stm32DSLVisitor<? extends T>)visitor).visitTimeExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final TimeExpressionContext timeExpression() throws RecognitionException {
+		TimeExpressionContext _localctx = new TimeExpressionContext(_ctx, getState());
+		enterRule(_localctx, 12, RULE_timeExpression);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(80);
+			_errHandler.sync(this);
+			switch (_input.LA(1)) {
+			case NUMBER:
+				{
+				setState(78);
+				match(NUMBER);
+				}
+				break;
+			case LB:
+				{
+				setState(79);
+				valueExpressionWithBrackets();
+				}
+				break;
+			default:
+				throw new NoViableAltException(this);
+			}
+			setState(82);
+			match(TIME_UNIT);
 			}
 		}
 		catch (RecognitionException re) {
@@ -519,19 +584,19 @@ public class Stm32DSLParser extends Parser {
 
 	public final WhileExpressionContext whileExpression() throws RecognitionException {
 		WhileExpressionContext _localctx = new WhileExpressionContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_whileExpression);
+		enterRule(_localctx, 14, RULE_whileExpression);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(76);
+			setState(84);
 			match(WHILE_KW);
-			setState(77);
+			setState(85);
 			match(LB);
-			setState(78);
+			setState(86);
 			conditionalExpression();
-			setState(79);
+			setState(87);
 			match(RB);
-			setState(80);
+			setState(88);
 			block();
 			}
 		}
@@ -590,41 +655,41 @@ public class Stm32DSLParser extends Parser {
 
 	public final ForExpressionContext forExpression() throws RecognitionException {
 		ForExpressionContext _localctx = new ForExpressionContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_forExpression);
+		enterRule(_localctx, 16, RULE_forExpression);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(82);
-			match(FOR_KW);
-			setState(83);
-			match(LB);
-			setState(84);
-			varExpression();
-			setState(85);
-			match(DEL);
-			setState(86);
-			conditionalExpression();
-			setState(87);
-			match(DEL);
 			setState(90);
+			match(FOR_KW);
+			setState(91);
+			match(LB);
+			setState(92);
+			varExpression();
+			setState(93);
+			match(DEL);
+			setState(94);
+			conditionalExpression();
+			setState(95);
+			match(DEL);
+			setState(98);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
 				{
-				setState(88);
+				setState(96);
 				assignExpression();
 				}
 				break;
 			case 2:
 				{
-				setState(89);
+				setState(97);
 				unaryExpression();
 				}
 				break;
 			}
-			setState(92);
+			setState(100);
 			match(RB);
-			setState(93);
+			setState(101);
 			block();
 			}
 		}
@@ -666,17 +731,17 @@ public class Stm32DSLParser extends Parser {
 
 	public final VarExpressionContext varExpression() throws RecognitionException {
 		VarExpressionContext _localctx = new VarExpressionContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_varExpression);
+		enterRule(_localctx, 18, RULE_varExpression);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(95);
+			setState(103);
 			match(VAR_KW);
-			setState(96);
+			setState(104);
 			match(VAR);
-			setState(97);
+			setState(105);
 			match(T__0);
-			setState(98);
+			setState(106);
 			valueExpression();
 			}
 		}
@@ -717,15 +782,15 @@ public class Stm32DSLParser extends Parser {
 
 	public final AssignExpressionContext assignExpression() throws RecognitionException {
 		AssignExpressionContext _localctx = new AssignExpressionContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_assignExpression);
+		enterRule(_localctx, 20, RULE_assignExpression);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(100);
+			setState(108);
 			match(VAR);
-			setState(101);
+			setState(109);
 			match(T__0);
-			setState(102);
+			setState(110);
 			valueExpression();
 			}
 		}
@@ -765,14 +830,14 @@ public class Stm32DSLParser extends Parser {
 
 	public final PrintExpressionContext printExpression() throws RecognitionException {
 		PrintExpressionContext _localctx = new PrintExpressionContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_printExpression);
+		enterRule(_localctx, 22, RULE_printExpression);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(104);
+			setState(112);
 			match(PRINT_KW);
-			setState(105);
+			setState(113);
 			_la = _input.LA(1);
 			if ( !(_la==CHAR_LITERAL || _la==STRING_LITERAL) ) {
 			_errHandler.recoverInline(this);
@@ -830,29 +895,29 @@ public class Stm32DSLParser extends Parser {
 
 	public final IfExpressionContext ifExpression() throws RecognitionException {
 		IfExpressionContext _localctx = new IfExpressionContext(_ctx, getState());
-		enterRule(_localctx, 22, RULE_ifExpression);
+		enterRule(_localctx, 24, RULE_ifExpression);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(107);
+			setState(115);
 			match(IF_KW);
-			setState(108);
+			setState(116);
 			match(LB);
-			setState(109);
+			setState(117);
 			conditionalExpression();
-			setState(110);
+			setState(118);
 			match(RB);
-			setState(111);
+			setState(119);
 			block();
-			setState(114);
+			setState(122);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==ELSE_KW) {
 				{
-				setState(112);
+				setState(120);
 				match(ELSE_KW);
-				setState(113);
+				setState(121);
 				block();
 				}
 			}
@@ -895,11 +960,11 @@ public class Stm32DSLParser extends Parser {
 
 	public final ConditionalExpressionContext conditionalExpression() throws RecognitionException {
 		ConditionalExpressionContext _localctx = new ConditionalExpressionContext(_ctx, getState());
-		enterRule(_localctx, 24, RULE_conditionalExpression);
+		enterRule(_localctx, 26, RULE_conditionalExpression);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(116);
+			setState(124);
 			logicalOrExpression();
 			}
 		}
@@ -946,26 +1011,26 @@ public class Stm32DSLParser extends Parser {
 
 	public final LogicalOrExpressionContext logicalOrExpression() throws RecognitionException {
 		LogicalOrExpressionContext _localctx = new LogicalOrExpressionContext(_ctx, getState());
-		enterRule(_localctx, 26, RULE_logicalOrExpression);
+		enterRule(_localctx, 28, RULE_logicalOrExpression);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(118);
+			setState(126);
 			logicalAndExpression();
-			setState(123);
+			setState(131);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==LOGICAL_OR_OP) {
 				{
 				{
-				setState(119);
+				setState(127);
 				match(LOGICAL_OR_OP);
-				setState(120);
+				setState(128);
 				logicalAndExpression();
 				}
 				}
-				setState(125);
+				setState(133);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -1014,26 +1079,26 @@ public class Stm32DSLParser extends Parser {
 
 	public final LogicalAndExpressionContext logicalAndExpression() throws RecognitionException {
 		LogicalAndExpressionContext _localctx = new LogicalAndExpressionContext(_ctx, getState());
-		enterRule(_localctx, 28, RULE_logicalAndExpression);
+		enterRule(_localctx, 30, RULE_logicalAndExpression);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(126);
+			setState(134);
 			equalityExpression();
-			setState(131);
+			setState(139);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==LOGICAL_AND_OP) {
 				{
 				{
-				setState(127);
+				setState(135);
 				match(LOGICAL_AND_OP);
-				setState(128);
+				setState(136);
 				equalityExpression();
 				}
 				}
-				setState(133);
+				setState(141);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -1082,26 +1147,26 @@ public class Stm32DSLParser extends Parser {
 
 	public final EqualityExpressionContext equalityExpression() throws RecognitionException {
 		EqualityExpressionContext _localctx = new EqualityExpressionContext(_ctx, getState());
-		enterRule(_localctx, 30, RULE_equalityExpression);
+		enterRule(_localctx, 32, RULE_equalityExpression);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(134);
+			setState(142);
 			relationalExpression();
-			setState(139);
+			setState(147);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==EQUALITY_OP) {
 				{
 				{
-				setState(135);
+				setState(143);
 				match(EQUALITY_OP);
-				setState(136);
+				setState(144);
 				relationalExpression();
 				}
 				}
-				setState(141);
+				setState(149);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -1150,26 +1215,26 @@ public class Stm32DSLParser extends Parser {
 
 	public final RelationalExpressionContext relationalExpression() throws RecognitionException {
 		RelationalExpressionContext _localctx = new RelationalExpressionContext(_ctx, getState());
-		enterRule(_localctx, 32, RULE_relationalExpression);
+		enterRule(_localctx, 34, RULE_relationalExpression);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(142);
+			setState(150);
 			valueExpression();
-			setState(147);
+			setState(155);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==RELATIONAL_OP) {
 				{
 				{
-				setState(143);
+				setState(151);
 				match(RELATIONAL_OP);
-				setState(144);
+				setState(152);
 				valueExpression();
 				}
 				}
-				setState(149);
+				setState(157);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -1224,12 +1289,12 @@ public class Stm32DSLParser extends Parser {
 
 	public final ValueExpressionContext valueExpression() throws RecognitionException {
 		ValueExpressionContext _localctx = new ValueExpressionContext(_ctx, getState());
-		enterRule(_localctx, 34, RULE_valueExpression);
+		enterRule(_localctx, 36, RULE_valueExpression);
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(152);
+			setState(160);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case IS_LOUD_KW:
@@ -1238,36 +1303,36 @@ public class Stm32DSLParser extends Parser {
 			case DECREMENT:
 			case NUMBER:
 				{
-				setState(150);
+				setState(158);
 				value();
 				}
 				break;
 			case LB:
 				{
-				setState(151);
+				setState(159);
 				valueExpressionWithBrackets();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
 			}
-			setState(158);
+			setState(166);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,9,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(154);
+					setState(162);
 					match(OP);
-					setState(155);
+					setState(163);
 					valueExpression();
 					}
 					} 
 				}
-				setState(160);
+				setState(168);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,8,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,9,_ctx);
 			}
 			}
 		}
@@ -1309,15 +1374,15 @@ public class Stm32DSLParser extends Parser {
 
 	public final ValueExpressionWithBracketsContext valueExpressionWithBrackets() throws RecognitionException {
 		ValueExpressionWithBracketsContext _localctx = new ValueExpressionWithBracketsContext(_ctx, getState());
-		enterRule(_localctx, 36, RULE_valueExpressionWithBrackets);
+		enterRule(_localctx, 38, RULE_valueExpressionWithBrackets);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(161);
+			setState(169);
 			match(LB);
-			setState(162);
+			setState(170);
 			valueExpression();
-			setState(163);
+			setState(171);
 			match(RB);
 			}
 		}
@@ -1362,36 +1427,36 @@ public class Stm32DSLParser extends Parser {
 
 	public final ValueContext value() throws RecognitionException {
 		ValueContext _localctx = new ValueContext(_ctx, getState());
-		enterRule(_localctx, 38, RULE_value);
+		enterRule(_localctx, 40, RULE_value);
 		try {
-			setState(169);
+			setState(177);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(165);
+				setState(173);
 				isLoudExpression();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(166);
+				setState(174);
 				match(NUMBER);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(167);
+				setState(175);
 				match(VAR);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(168);
+				setState(176);
 				unaryExpression();
 				}
 				break;
@@ -1431,11 +1496,11 @@ public class Stm32DSLParser extends Parser {
 
 	public final IsLoudExpressionContext isLoudExpression() throws RecognitionException {
 		IsLoudExpressionContext _localctx = new IsLoudExpressionContext(_ctx, getState());
-		enterRule(_localctx, 40, RULE_isLoudExpression);
+		enterRule(_localctx, 42, RULE_isLoudExpression);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(171);
+			setState(179);
 			match(IS_LOUD_KW);
 			}
 		}
@@ -1480,28 +1545,28 @@ public class Stm32DSLParser extends Parser {
 
 	public final BlockContext block() throws RecognitionException {
 		BlockContext _localctx = new BlockContext(_ctx, getState());
-		enterRule(_localctx, 42, RULE_block);
+		enterRule(_localctx, 44, RULE_block);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(173);
+			setState(181);
 			match(LFB);
-			setState(177);
+			setState(185);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LED_ON_KW) | (1L << LED_OFF_KW) | (1L << BLINK_KW) | (1L << DELAY_KW) | (1L << PRINT_KW) | (1L << WHILE_KW) | (1L << FOR_KW) | (1L << IF_KW) | (1L << VAR_KW) | (1L << VAR) | (1L << INCREMENT) | (1L << DECREMENT))) != 0)) {
 				{
 				{
-				setState(174);
+				setState(182);
 				expression();
 				}
 				}
-				setState(179);
+				setState(187);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(180);
+			setState(188);
 			match(RFB);
 			}
 		}
@@ -1544,23 +1609,23 @@ public class Stm32DSLParser extends Parser {
 
 	public final UnaryExpressionContext unaryExpression() throws RecognitionException {
 		UnaryExpressionContext _localctx = new UnaryExpressionContext(_ctx, getState());
-		enterRule(_localctx, 44, RULE_unaryExpression);
+		enterRule(_localctx, 46, RULE_unaryExpression);
 		try {
-			setState(184);
+			setState(192);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case INCREMENT:
 			case DECREMENT:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(182);
+				setState(190);
 				prefixExpression();
 				}
 				break;
 			case VAR:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(183);
+				setState(191);
 				postfixExpression();
 				}
 				break;
@@ -1604,14 +1669,14 @@ public class Stm32DSLParser extends Parser {
 
 	public final PostfixExpressionContext postfixExpression() throws RecognitionException {
 		PostfixExpressionContext _localctx = new PostfixExpressionContext(_ctx, getState());
-		enterRule(_localctx, 46, RULE_postfixExpression);
+		enterRule(_localctx, 48, RULE_postfixExpression);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(186);
+			setState(194);
 			match(VAR);
-			setState(187);
+			setState(195);
 			_la = _input.LA(1);
 			if ( !(_la==INCREMENT || _la==DECREMENT) ) {
 			_errHandler.recoverInline(this);
@@ -1659,12 +1724,12 @@ public class Stm32DSLParser extends Parser {
 
 	public final PrefixExpressionContext prefixExpression() throws RecognitionException {
 		PrefixExpressionContext _localctx = new PrefixExpressionContext(_ctx, getState());
-		enterRule(_localctx, 48, RULE_prefixExpression);
+		enterRule(_localctx, 50, RULE_prefixExpression);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(189);
+			setState(197);
 			_la = _input.LA(1);
 			if ( !(_la==INCREMENT || _la==DECREMENT) ) {
 			_errHandler.recoverInline(this);
@@ -1674,7 +1739,7 @@ public class Stm32DSLParser extends Parser {
 				_errHandler.reportMatch(this);
 				consume();
 			}
-			setState(190);
+			setState(198);
 			match(VAR);
 			}
 		}
@@ -1690,63 +1755,66 @@ public class Stm32DSLParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3 \u00c3\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3!\u00cb\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
-		"\4\32\t\32\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\5\3"+
-		"C\n\3\3\4\3\4\3\5\3\5\3\6\3\6\3\6\3\7\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b"+
-		"\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\5\t]\n\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n"+
-		"\3\n\3\13\3\13\3\13\3\13\3\f\3\f\3\f\3\r\3\r\3\r\3\r\3\r\3\r\3\r\5\ru"+
-		"\n\r\3\16\3\16\3\17\3\17\3\17\7\17|\n\17\f\17\16\17\177\13\17\3\20\3\20"+
-		"\3\20\7\20\u0084\n\20\f\20\16\20\u0087\13\20\3\21\3\21\3\21\7\21\u008c"+
-		"\n\21\f\21\16\21\u008f\13\21\3\22\3\22\3\22\7\22\u0094\n\22\f\22\16\22"+
-		"\u0097\13\22\3\23\3\23\5\23\u009b\n\23\3\23\3\23\7\23\u009f\n\23\f\23"+
-		"\16\23\u00a2\13\23\3\24\3\24\3\24\3\24\3\25\3\25\3\25\3\25\5\25\u00ac"+
-		"\n\25\3\26\3\26\3\27\3\27\7\27\u00b2\n\27\f\27\16\27\u00b5\13\27\3\27"+
-		"\3\27\3\30\3\30\5\30\u00bb\n\30\3\31\3\31\3\31\3\32\3\32\3\32\3\32\2\2"+
-		"\33\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,.\60\62\2\4\3\2\36\37"+
-		"\3\2\32\33\2\u00c0\2\64\3\2\2\2\4B\3\2\2\2\6D\3\2\2\2\bF\3\2\2\2\nH\3"+
-		"\2\2\2\fK\3\2\2\2\16N\3\2\2\2\20T\3\2\2\2\22a\3\2\2\2\24f\3\2\2\2\26j"+
-		"\3\2\2\2\30m\3\2\2\2\32v\3\2\2\2\34x\3\2\2\2\36\u0080\3\2\2\2 \u0088\3"+
-		"\2\2\2\"\u0090\3\2\2\2$\u009a\3\2\2\2&\u00a3\3\2\2\2(\u00ab\3\2\2\2*\u00ad"+
-		"\3\2\2\2,\u00af\3\2\2\2.\u00ba\3\2\2\2\60\u00bc\3\2\2\2\62\u00bf\3\2\2"+
-		"\2\64\65\7\4\2\2\65\66\5,\27\2\66\3\3\2\2\2\67C\5\f\7\28C\5\6\4\29C\5"+
-		"\b\5\2:C\5\n\6\2;C\5\16\b\2<C\5\20\t\2=C\5\22\n\2>C\5\24\13\2?C\5.\30"+
-		"\2@C\5\26\f\2AC\5\30\r\2B\67\3\2\2\2B8\3\2\2\2B9\3\2\2\2B:\3\2\2\2B;\3"+
-		"\2\2\2B<\3\2\2\2B=\3\2\2\2B>\3\2\2\2B?\3\2\2\2B@\3\2\2\2BA\3\2\2\2C\5"+
-		"\3\2\2\2DE\7\t\2\2E\7\3\2\2\2FG\7\n\2\2G\t\3\2\2\2HI\7\f\2\2IJ\5$\23\2"+
-		"J\13\3\2\2\2KL\7\13\2\2LM\5$\23\2M\r\3\2\2\2NO\7\17\2\2OP\7\7\2\2PQ\5"+
-		"\32\16\2QR\7\b\2\2RS\5,\27\2S\17\3\2\2\2TU\7\21\2\2UV\7\7\2\2VW\5\22\n"+
-		"\2WX\7\20\2\2XY\5\32\16\2Y\\\7\20\2\2Z]\5\24\13\2[]\5.\30\2\\Z\3\2\2\2"+
-		"\\[\3\2\2\2]^\3\2\2\2^_\7\b\2\2_`\5,\27\2`\21\3\2\2\2ab\7\30\2\2bc\7\31"+
-		"\2\2cd\7\3\2\2de\5$\23\2e\23\3\2\2\2fg\7\31\2\2gh\7\3\2\2hi\5$\23\2i\25"+
-		"\3\2\2\2jk\7\16\2\2kl\t\2\2\2l\27\3\2\2\2mn\7\22\2\2no\7\7\2\2op\5\32"+
-		"\16\2pq\7\b\2\2qt\5,\27\2rs\7\23\2\2su\5,\27\2tr\3\2\2\2tu\3\2\2\2u\31"+
-		"\3\2\2\2vw\5\34\17\2w\33\3\2\2\2x}\5\36\20\2yz\7\26\2\2z|\5\36\20\2{y"+
-		"\3\2\2\2|\177\3\2\2\2}{\3\2\2\2}~\3\2\2\2~\35\3\2\2\2\177}\3\2\2\2\u0080"+
-		"\u0085\5 \21\2\u0081\u0082\7\27\2\2\u0082\u0084\5 \21\2\u0083\u0081\3"+
-		"\2\2\2\u0084\u0087\3\2\2\2\u0085\u0083\3\2\2\2\u0085\u0086\3\2\2\2\u0086"+
-		"\37\3\2\2\2\u0087\u0085\3\2\2\2\u0088\u008d\5\"\22\2\u0089\u008a\7\25"+
-		"\2\2\u008a\u008c\5\"\22\2\u008b\u0089\3\2\2\2\u008c\u008f\3\2\2\2\u008d"+
-		"\u008b\3\2\2\2\u008d\u008e\3\2\2\2\u008e!\3\2\2\2\u008f\u008d\3\2\2\2"+
-		"\u0090\u0095\5$\23\2\u0091\u0092\7\24\2\2\u0092\u0094\5$\23\2\u0093\u0091"+
-		"\3\2\2\2\u0094\u0097\3\2\2\2\u0095\u0093\3\2\2\2\u0095\u0096\3\2\2\2\u0096"+
-		"#\3\2\2\2\u0097\u0095\3\2\2\2\u0098\u009b\5(\25\2\u0099\u009b\5&\24\2"+
-		"\u009a\u0098\3\2\2\2\u009a\u0099\3\2\2\2\u009b\u00a0\3\2\2\2\u009c\u009d"+
-		"\7\34\2\2\u009d\u009f\5$\23\2\u009e\u009c\3\2\2\2\u009f\u00a2\3\2\2\2"+
-		"\u00a0\u009e\3\2\2\2\u00a0\u00a1\3\2\2\2\u00a1%\3\2\2\2\u00a2\u00a0\3"+
-		"\2\2\2\u00a3\u00a4\7\7\2\2\u00a4\u00a5\5$\23\2\u00a5\u00a6\7\b\2\2\u00a6"+
-		"\'\3\2\2\2\u00a7\u00ac\5*\26\2\u00a8\u00ac\7\35\2\2\u00a9\u00ac\7\31\2"+
-		"\2\u00aa\u00ac\5.\30\2\u00ab\u00a7\3\2\2\2\u00ab\u00a8\3\2\2\2\u00ab\u00a9"+
-		"\3\2\2\2\u00ab\u00aa\3\2\2\2\u00ac)\3\2\2\2\u00ad\u00ae\7\r\2\2\u00ae"+
-		"+\3\2\2\2\u00af\u00b3\7\5\2\2\u00b0\u00b2\5\4\3\2\u00b1\u00b0\3\2\2\2"+
-		"\u00b2\u00b5\3\2\2\2\u00b3\u00b1\3\2\2\2\u00b3\u00b4\3\2\2\2\u00b4\u00b6"+
-		"\3\2\2\2\u00b5\u00b3\3\2\2\2\u00b6\u00b7\7\6\2\2\u00b7-\3\2\2\2\u00b8"+
-		"\u00bb\5\62\32\2\u00b9\u00bb\5\60\31\2\u00ba\u00b8\3\2\2\2\u00ba\u00b9"+
-		"\3\2\2\2\u00bb/\3\2\2\2\u00bc\u00bd\7\31\2\2\u00bd\u00be\t\3\2\2\u00be"+
-		"\61\3\2\2\2\u00bf\u00c0\t\3\2\2\u00c0\u00c1\7\31\2\2\u00c1\63\3\2\2\2"+
-		"\16B\\t}\u0085\u008d\u0095\u009a\u00a0\u00ab\u00b3\u00ba";
+		"\4\32\t\32\4\33\t\33\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
+		"\3\3\3\5\3E\n\3\3\4\3\4\3\5\3\5\3\6\3\6\3\6\3\7\3\7\3\7\3\b\3\b\5\bS\n"+
+		"\b\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\5\n"+
+		"e\n\n\3\n\3\n\3\n\3\13\3\13\3\13\3\13\3\13\3\f\3\f\3\f\3\f\3\r\3\r\3\r"+
+		"\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16}\n\16\3\17\3\17\3\20\3\20\3\20"+
+		"\7\20\u0084\n\20\f\20\16\20\u0087\13\20\3\21\3\21\3\21\7\21\u008c\n\21"+
+		"\f\21\16\21\u008f\13\21\3\22\3\22\3\22\7\22\u0094\n\22\f\22\16\22\u0097"+
+		"\13\22\3\23\3\23\3\23\7\23\u009c\n\23\f\23\16\23\u009f\13\23\3\24\3\24"+
+		"\5\24\u00a3\n\24\3\24\3\24\7\24\u00a7\n\24\f\24\16\24\u00aa\13\24\3\25"+
+		"\3\25\3\25\3\25\3\26\3\26\3\26\3\26\5\26\u00b4\n\26\3\27\3\27\3\30\3\30"+
+		"\7\30\u00ba\n\30\f\30\16\30\u00bd\13\30\3\30\3\30\3\31\3\31\5\31\u00c3"+
+		"\n\31\3\32\3\32\3\32\3\33\3\33\3\33\3\33\2\2\34\2\4\6\b\n\f\16\20\22\24"+
+		"\26\30\32\34\36 \"$&(*,.\60\62\64\2\4\3\2\37 \3\2\33\34\2\u00c8\2\66\3"+
+		"\2\2\2\4D\3\2\2\2\6F\3\2\2\2\bH\3\2\2\2\nJ\3\2\2\2\fM\3\2\2\2\16R\3\2"+
+		"\2\2\20V\3\2\2\2\22\\\3\2\2\2\24i\3\2\2\2\26n\3\2\2\2\30r\3\2\2\2\32u"+
+		"\3\2\2\2\34~\3\2\2\2\36\u0080\3\2\2\2 \u0088\3\2\2\2\"\u0090\3\2\2\2$"+
+		"\u0098\3\2\2\2&\u00a2\3\2\2\2(\u00ab\3\2\2\2*\u00b3\3\2\2\2,\u00b5\3\2"+
+		"\2\2.\u00b7\3\2\2\2\60\u00c2\3\2\2\2\62\u00c4\3\2\2\2\64\u00c7\3\2\2\2"+
+		"\66\67\7\4\2\2\678\5.\30\28\3\3\2\2\29E\5\f\7\2:E\5\6\4\2;E\5\b\5\2<E"+
+		"\5\n\6\2=E\5\20\t\2>E\5\22\n\2?E\5\24\13\2@E\5\26\f\2AE\5\60\31\2BE\5"+
+		"\30\r\2CE\5\32\16\2D9\3\2\2\2D:\3\2\2\2D;\3\2\2\2D<\3\2\2\2D=\3\2\2\2"+
+		"D>\3\2\2\2D?\3\2\2\2D@\3\2\2\2DA\3\2\2\2DB\3\2\2\2DC\3\2\2\2E\5\3\2\2"+
+		"\2FG\7\t\2\2G\7\3\2\2\2HI\7\n\2\2I\t\3\2\2\2JK\7\f\2\2KL\5\16\b\2L\13"+
+		"\3\2\2\2MN\7\13\2\2NO\5\16\b\2O\r\3\2\2\2PS\7\36\2\2QS\5(\25\2RP\3\2\2"+
+		"\2RQ\3\2\2\2ST\3\2\2\2TU\7\30\2\2U\17\3\2\2\2VW\7\17\2\2WX\7\7\2\2XY\5"+
+		"\34\17\2YZ\7\b\2\2Z[\5.\30\2[\21\3\2\2\2\\]\7\21\2\2]^\7\7\2\2^_\5\24"+
+		"\13\2_`\7\20\2\2`a\5\34\17\2ad\7\20\2\2be\5\26\f\2ce\5\60\31\2db\3\2\2"+
+		"\2dc\3\2\2\2ef\3\2\2\2fg\7\b\2\2gh\5.\30\2h\23\3\2\2\2ij\7\31\2\2jk\7"+
+		"\32\2\2kl\7\3\2\2lm\5&\24\2m\25\3\2\2\2no\7\32\2\2op\7\3\2\2pq\5&\24\2"+
+		"q\27\3\2\2\2rs\7\16\2\2st\t\2\2\2t\31\3\2\2\2uv\7\22\2\2vw\7\7\2\2wx\5"+
+		"\34\17\2xy\7\b\2\2y|\5.\30\2z{\7\23\2\2{}\5.\30\2|z\3\2\2\2|}\3\2\2\2"+
+		"}\33\3\2\2\2~\177\5\36\20\2\177\35\3\2\2\2\u0080\u0085\5 \21\2\u0081\u0082"+
+		"\7\26\2\2\u0082\u0084\5 \21\2\u0083\u0081\3\2\2\2\u0084\u0087\3\2\2\2"+
+		"\u0085\u0083\3\2\2\2\u0085\u0086\3\2\2\2\u0086\37\3\2\2\2\u0087\u0085"+
+		"\3\2\2\2\u0088\u008d\5\"\22\2\u0089\u008a\7\27\2\2\u008a\u008c\5\"\22"+
+		"\2\u008b\u0089\3\2\2\2\u008c\u008f\3\2\2\2\u008d\u008b\3\2\2\2\u008d\u008e"+
+		"\3\2\2\2\u008e!\3\2\2\2\u008f\u008d\3\2\2\2\u0090\u0095\5$\23\2\u0091"+
+		"\u0092\7\25\2\2\u0092\u0094\5$\23\2\u0093\u0091\3\2\2\2\u0094\u0097\3"+
+		"\2\2\2\u0095\u0093\3\2\2\2\u0095\u0096\3\2\2\2\u0096#\3\2\2\2\u0097\u0095"+
+		"\3\2\2\2\u0098\u009d\5&\24\2\u0099\u009a\7\24\2\2\u009a\u009c\5&\24\2"+
+		"\u009b\u0099\3\2\2\2\u009c\u009f\3\2\2\2\u009d\u009b\3\2\2\2\u009d\u009e"+
+		"\3\2\2\2\u009e%\3\2\2\2\u009f\u009d\3\2\2\2\u00a0\u00a3\5*\26\2\u00a1"+
+		"\u00a3\5(\25\2\u00a2\u00a0\3\2\2\2\u00a2\u00a1\3\2\2\2\u00a3\u00a8\3\2"+
+		"\2\2\u00a4\u00a5\7\35\2\2\u00a5\u00a7\5&\24\2\u00a6\u00a4\3\2\2\2\u00a7"+
+		"\u00aa\3\2\2\2\u00a8\u00a6\3\2\2\2\u00a8\u00a9\3\2\2\2\u00a9\'\3\2\2\2"+
+		"\u00aa\u00a8\3\2\2\2\u00ab\u00ac\7\7\2\2\u00ac\u00ad\5&\24\2\u00ad\u00ae"+
+		"\7\b\2\2\u00ae)\3\2\2\2\u00af\u00b4\5,\27\2\u00b0\u00b4\7\36\2\2\u00b1"+
+		"\u00b4\7\32\2\2\u00b2\u00b4\5\60\31\2\u00b3\u00af\3\2\2\2\u00b3\u00b0"+
+		"\3\2\2\2\u00b3\u00b1\3\2\2\2\u00b3\u00b2\3\2\2\2\u00b4+\3\2\2\2\u00b5"+
+		"\u00b6\7\r\2\2\u00b6-\3\2\2\2\u00b7\u00bb\7\5\2\2\u00b8\u00ba\5\4\3\2"+
+		"\u00b9\u00b8\3\2\2\2\u00ba\u00bd\3\2\2\2\u00bb\u00b9\3\2\2\2\u00bb\u00bc"+
+		"\3\2\2\2\u00bc\u00be\3\2\2\2\u00bd\u00bb\3\2\2\2\u00be\u00bf\7\6\2\2\u00bf"+
+		"/\3\2\2\2\u00c0\u00c3\5\64\33\2\u00c1\u00c3\5\62\32\2\u00c2\u00c0\3\2"+
+		"\2\2\u00c2\u00c1\3\2\2\2\u00c3\61\3\2\2\2\u00c4\u00c5\7\32\2\2\u00c5\u00c6"+
+		"\t\3\2\2\u00c6\63\3\2\2\2\u00c7\u00c8\t\3\2\2\u00c8\u00c9\7\32\2\2\u00c9"+
+		"\65\3\2\2\2\17DRd|\u0085\u008d\u0095\u009d\u00a2\u00a8\u00b3\u00bb\u00c2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

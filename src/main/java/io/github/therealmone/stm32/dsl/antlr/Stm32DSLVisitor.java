@@ -47,6 +47,12 @@ public interface Stm32DSLVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitBlinkExpression(Stm32DSLParser.BlinkExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Stm32DSLParser#timeExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTimeExpression(Stm32DSLParser.TimeExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Stm32DSLParser#whileExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

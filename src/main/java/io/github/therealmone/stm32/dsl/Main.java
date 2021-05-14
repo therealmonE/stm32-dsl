@@ -7,14 +7,8 @@ public class Main {
 
     public static final String PROGRAM = """
             script {
-                var n = 13
-                var result = 1
-                
-                for (var i = 2; i < (n + 1); i++) {
-                    result = result * i
-                }
-                
-                print "${n}! = ${result}"
+                var i = 10
+                blink (i * 10)h
             }
             """;
 

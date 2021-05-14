@@ -20,18 +20,20 @@ RELATIONAL_OP : '<' | '>';
 EQUALITY_OP :  '==' | '!=';
 LOGICAL_OR_OP : '||';
 LOGICAL_AND_OP : '&&';
+TIME_UNIT : 'ms' | 's' | 'm' | 'h';
 VAR_KW : 'var';
 VAR : [a-zA-Z]+;
 INCREMENT : '++';
 DECREMENT : '--';
 OP : '+' | '-' | '*' | '%' | '/';
-NUMBER : [0-9]+;
+NUMBER : '0' | '-'?[1-9][0-9]*;
 CHAR_LITERAL : '\''~[']'\'';
 STRING_LITERAL : '"'(~["])+'"';
 WS : [\n\t\r ]+ -> skip;
 
 script
-    : SCRIPT_KW block;
+    : SCRIPT_KW block
+    ;
 
 expression
     : blinkExpression
@@ -44,7 +46,8 @@ expression
     | assignExpression
     | unaryExpression
     | printExpression
-    | ifExpression;
+    | ifExpression
+    ;
 
 ledOnExpression
     : LED_ON_KW
@@ -55,11 +58,15 @@ ledOffExpression
     ;
 
 delayExpression
-    : DELAY_KW valueExpression
+    : DELAY_KW timeExpression
     ;
 
 blinkExpression
-    : BLINK_KW valueExpression
+    : BLINK_KW timeExpression
+    ;
+
+timeExpression
+    : (NUMBER | valueExpressionWithBrackets) TIME_UNIT
     ;
 
 whileExpression
